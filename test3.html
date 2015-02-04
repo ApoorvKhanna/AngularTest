@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h3> Add State and Capital </h3>
+<div ng-app="myApp" ng-controller="myCtrl">
+    State Name:<br/>
+    <input type="text" data-ng-model="inputData.name" placeholder="name" />
+    <br />
+    Capital:<br />
+    <input type="text" data-ng-model="inputData.capital" placeholder="capital" />
+    <br />
+    <button class="btn btn-primary" data-ng-click="addState()">Add State</button>
+    <br />
+    <br />
+<h3> State - Capital </h3>
+Filter: <input type="text" data-ng-model="nameText" />
+    <ul>
+        <li data-ng-repeat="state in states | filter:nameText " >{{ state.name }} - {{state.capital | uppercase}}</li>
+    </ul>
+</div>
+
+<script src="angular.min.js"></script>
+
+<script>
+var app = angular.module("myApp", []);
+
+app.controller("myCtrl", function($scope) {
+       $scope.states = [
+            { name: 'Maharashtra', capital: 'Mumbai' },
+            { name: 'Karnataka', capital: 'Bangalore' },
+            { name: 'Punjab', capital: 'Chandigarh' },
+            { name: 'Gujrat', capital: 'GandhiNagar' }
+        ];
+
+        $scope.addState = function () {
+            $scope.states.push({ name: $scope.inputData.name, capital: $scope.inputData.capital });
+        };
+});
+</script>
+
+</body>
+</html>
