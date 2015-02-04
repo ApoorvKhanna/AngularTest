@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h3> Page 1 </h3>
+<div ng-app="myApp" ng-controller="myCtrl">
+ <br />
+<ul>
+    <li ng-repeat="state in states | orderBy:'name'">{{ state.name }} - {{ state.capital }}</li>
+</ul>
+<br />
+<a href="#/page2">Load page 2</a>
+</div>
+
+<script src="angular.min.js"></script>
+
+
+</body>
+</html>
