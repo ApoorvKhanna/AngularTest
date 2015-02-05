@@ -1,0 +1,17 @@
+<div class="jumbotron text-center">
+	<h1>About Page</h1>
+	
+	<p>{{ message }}</p>
+	<ul>
+    <li ng-repeat="state in states | orderBy:'capital'">{{ state.name | uppercase }} - {{ state.capital | uppercase}}</li>
+	</ul>
+	State Name:<br/>
+    <input type="text" data-ng-model="inputData.name" placeholder="name" />
+    <br />
+    Capital:<br />
+    <input type="text" data-ng-model="inputData.capital" placeholder="capital" />
+    <br />
+    <button class="btn btn-primary" data-ng-click="addState()">Add State</button>
+    <br />
+    <br />
+</div>
